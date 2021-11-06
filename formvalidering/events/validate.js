@@ -70,7 +70,3 @@ export function validateAge(element) {
     }
         
 }
-
-
-
- 
