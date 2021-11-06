@@ -1,3 +1,8 @@
+
+ // FUNCTIONS EXPORTED TO SCRIPT.JS //
+
+ // MINIMUM LENGTH // 
+
 export function validateMinLength(element, minLength = 2) {
 
 
@@ -10,6 +15,8 @@ export function validateMinLength(element, minLength = 2) {
      }
         
 }   
+
+ // EMAIL VALIDATON // 
 
 export function validateEmail(element) {
 
@@ -24,7 +31,7 @@ export function validateEmail(element) {
     }
 }
 
-
+ // PASSWORD VALIDATON // 
 
 export function validatePassword(element) {
 
@@ -39,6 +46,30 @@ export function validatePassword(element) {
     }
 }
 
+ // AGE VALIDATON // 
+
+export function validateAge(element) {
+    var birthday = element.value;
+
+    var optimizedBirthday = birthday.replace(/-/g, "/");
+
+    var myBirthday = new Date(optimizedBirthday);
+
+    var currentDate = new Date().toJSON().slice(0, 10) + " 01:00:00";
+
+    var result = ~~((Date.now(currentDate) - myBirthday) / 31557600000);
+
+    if (result < 18) {
+        document.getElementById(
+            `error-${element.id}`
+        ).innerText = `Du måste vara 18 år eller äldre`;
+        return false;
+    }   else {
+        document.getElementById(`error-${element.id}`).innerText = ``;
+        return true;
+    }
+        
+}
 
 
 

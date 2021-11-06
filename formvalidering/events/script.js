@@ -1,4 +1,4 @@
-import { validateEmail, validateMinLength, validatePassword } from "./validate.js";
+import { validateAge, validateEmail, validateMinLength, validatePassword } from "./validate.js";
 
 // DOM ELEMENT
 
@@ -50,8 +50,8 @@ document.getElementById("zipcode").addEventListener("keyup", function(e) {
 
 })
 
-document.getElementById("birth").addEventListener("keyup", function(e) {
-    (e.target)
+document.getElementById("birth").addEventListener("change", function(e) {
+    validateAge(e.target)
 
 })
 
@@ -78,8 +78,6 @@ document.getElementById("regForm").addEventListener("submit", function(e) {
                 break;
         }
 })
-
-
 
 
 
@@ -133,5 +131,4 @@ confirmPassword.addEventListener("keyup", function(event) {
     comparePassword(password, event)
 })
 
-// date //
 
